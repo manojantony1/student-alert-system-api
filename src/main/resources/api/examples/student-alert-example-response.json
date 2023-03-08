@@ -1,0 +1,20 @@
+[
+  {
+  "PrimaryKey": "1234567890",
+  "Id": "1234567890",
+  "StudentLink": "0123456789",
+  "Type": "Duplicated record for deletion"	,
+  "Start": "2023-01-11 17:14:26.000",
+  "End": "2023-03-11 17:14:26.000",
+  "Alert": "Test Alert for 0123456789"
+},
+{
+  "PrimaryKey": "1234567891",
+  "Id": "1234567891",
+  "StudentLink": "1123456789",
+  "Type": "Duplicated record for deletion"	,
+  "Start": "2023-01-11 17:14:26.000",
+  "End": "2023-03-11 17:14:26.000",
+  "Alert": "Test Alert for 1123456789"
+}
+]

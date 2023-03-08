@@ -1,0 +1,68 @@
+errorCodeMessage:
+  ### APIKIT Errors ###
+  apikit:
+    badRequest:
+      code: "400"
+      #description: "Request validation error"
+      description: "Bad Request"
+    notFound:
+      code: "404"
+      #description: "Resource not found"
+      description: "Not Found"
+    methodNotAllowed:
+      code: "405"
+      #description: "HTTP method not allowed"
+      description: "Method Not Allowed"
+    notAcceptable:
+      code: "406"
+      #description: "Requested content type not available"
+      description: "Not Acceptable"
+    unsupportedMediaType:
+      code: "415"
+      #description: "Payload format is in an unsupported format"
+      description: "Unsupported Media Type"
+    notImplemented:
+      code: "501"
+      #description: "Requested functionality is not supported"
+      description: "Not Implemented"
+      
+  ### HTTP Errors ###
+  http:
+    connectivity:
+      code: "500"
+      #description: "Connectivity Error, Please try later"
+      description: "Internal Server Error"
+    forbidden:
+      code: "403"
+      #description: "Server refused to authorize the request"
+      description: "Forbidden" 
+    serviceUnavailable:
+      code: "503"
+      #description: "Server not ready to handle the request"
+      description: "Service Unavailable"
+    timeout:
+      code: "504"
+      #description: "Gateway Timeout - Server did not get a response in time"
+      description: "Gateway Timeout" 
+    unauthorized:
+      code: "401"
+      #description: "Invalid Credentials"
+      description: "Unauthorized"
+        
+globalErrorHandler:
+  notifyByEmail: "true"
+          
+email:
+  fromAddress: "anypointplatform@plymouth.ac.uk"
+  toAddress: "mark.horrocks@plymouth.ac.uk,prakhar.singh@apisero.com"
+  subject: "Error - DEV"
+  content: "Hello, \n You are receiving this alert because: \n "
+  ## Below sample connection is for gmail as smtp ##
+  connection:
+    host: "smtp.office365.com"
+    port: "587"
+    user: "anypointplatform@plymouth.ac.uk"
+    ### if using gmail to send email, please allow less secure apps for above email id https://myaccount.google.com/lesssecureapps ###
+    properties:
+      key: "mail.smtp.starttls.enable"
+      value: "true"

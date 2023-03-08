@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd">
+	<http:listener-config name="HTTPS_Listener_config" doc:name="HTTP Listener config" doc:id="1ed51daa-3fa1-4249-8962-70a7cacd2742">
+        <http:listener-connection host="0.0.0.0" port="8082">
+        </http:listener-connection>
+    </http:listener-config>
+    <db:config name="Database_Config1" doc:name="Database Config" doc:id="87c77285-ffdc-4586-88f4-79b28792033c">
+        <db:mssql-connection host="${secure::database.host}" port="${secure::database.port}" user="${secure::database.username}" password="${secure::database.password}">
+            <reconnection>
+                <reconnect />
+            </reconnection>
+        </db:mssql-connection>
+    </db:config>
+    <configuration-properties doc:name="Configuration properties" doc:id="e80a9b22-bbc7-417e-a62e-041938f84ac3" file="properties\default.yaml" />
+    <configuration-properties doc:name="Configuration properties" doc:id="5a86bb4d-a1db-4728-8f65-54c923b49efd" file="properties\config-${mule.env}.yaml" />
+    <import doc:name="Import" doc:id="afc65b85-0522-42c8-ba14-6425d60e701e" file="apisero-generic-error-handler.xml" />
+	<import doc:name="Import" doc:id="3a1f8f2c-5d53-47dc-a90a-877361e0fcb1" file="error-framework-global-config.xml" />
+	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="46521b14-d8b4-4858-b1c3-9a2e52d90e42" file="properties/config-${mule.env}.yaml" key="${mule.key}" />	
+
+</mule>

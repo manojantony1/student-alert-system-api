@@ -1,0 +1,23 @@
+#%RAML 1.0
+title: student-alert-system-api
+
+traits:
+  client-credentials: !include /exchange_modules/dfb0e720-55fd-4f84-ae14-b3ec2cda52bc/client-credentials/1.0.0/client-credentials.raml
+
+
+version: 1.0.0
+
+protocols:
+  - HTTP
+  - HTTPS
+
+/studentalerts:
+  /{studentId}:
+    get:
+      description: "This method is used to get studnt alerts for the supplied Id"
+      is: [client-credentials]
+      responses: 
+        200:
+          body:
+            application/json:
+              example:  !include examples/student-alert-example-response.json
